@@ -30,11 +30,12 @@ cd /usr/src/kernel/kernel-4.9
 # Patching kernel for RealSense devices
 echo -e "\e[32mApplying realsense-uvc patch\e[0m"
 # Try to catch it up to 4.10
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-camera-formats_ubuntu-xenial-master.patch 
+patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-camera-formats_ubuntu-xenial-Ubuntu-hwe-4.8.0-58.63_16.04.1.patch 
 echo -e "\e[32mApplying realsense-metadata patch\e[0m"
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-metadata-ubuntu-xenial-master.patch
+patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-metadata-ubuntu-bionic-master.patch
 echo -e "\e[32mApplying realsense-hid patch\e[0m"
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-hid-ubuntu-xenial-master.patch
+# This appears to be the closest
+patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-hid-ubuntu-xenial-Ubuntu-hwe-4.8.0-58.63_16.04.1.patch
 echo -e "\e[32mpowerlinefrequency-control-fix patch\e[0m"
 patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-powerlinefrequency-control-fix.patch
 
