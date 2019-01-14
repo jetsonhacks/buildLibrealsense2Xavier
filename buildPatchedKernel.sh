@@ -7,7 +7,7 @@
 CLEANUP=true
 
 LIBREALSENSE_DIRECTORY=${HOME}/librealsense
-LIBREALSENSE_VERSION=v2.17.0
+LIBREALSENSE_VERSION=v2.17.1
 
 
 function usage
@@ -134,20 +134,15 @@ sudo ./scripts/getKernelSourcesNoGUI.sh
 
 echo "${green}Patching and configuring kernel${reset}"
 sudo ./scripts/configureKernel.sh
-
-exit 0
-
-
-cd ..
-echo "${green}Patching and configuring kernel${reset}"
-sudo ./scripts/configureKernel.sh
 sudo ./scripts/patchKernel.sh
 
-cd $KERNEL_BUILD_DIR
 # Make the new Image and build the modules
-echo "${green}Building Kernel and Modules${reset}"
-./makeKernel.sh
+echo "${green}Building Kernel and Modules then installing Modules${reset}"
+sudo ./scripts/makeKernel.sh
 
+echo "${green}Please flash the new kernel Image file on to the Jetson${reset}"
+
+# To Do
 # Leave a message that the new Image is in /usr/src/kernel/kernel-4.9/arch/arm64/boot/Image
 # Maybe copy it somewhere?
 # And must be flashed on to the Jetson

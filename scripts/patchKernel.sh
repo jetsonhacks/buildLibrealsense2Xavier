@@ -20,7 +20,7 @@ kernel_name="kernel-4.9"
 
 # Patches are available for kernel 4.4, 4.10 and 4.16
 # For L4T 31.1.0, the kernel is 4.9
-# Therefor we have to do a little dance and choose our patches artisinally
+# Therefore we have to do a little dance; patches are modified versions of xenial 4.4 and 4.8 kernel patches
 
 cd /usr/src/kernel/kernel-4.9
 
@@ -28,18 +28,14 @@ cd /usr/src/kernel/kernel-4.9
 # ubuntu_codename is xenial for L4T 28.X (Ubuntu 16.04)
 # ubuntu_codename is bionic for L4T 31.1 (Ubuntu 18.04)
 # Patching kernel for RealSense devices
-echo -e "\e[32mApplying realsense-uvc patch\e[0m"
-# Try to catch it up to 4.10
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-camera-formats_ubuntu-xenial-Ubuntu-hwe-4.8.0-58.63_16.04.1.patch 
+echo -e "\e[32mApplying Realsense-camera-formats patch\e[0m"
+patch -p1 < ${INSTALL_DIR}/patches/realsense-camera-formats_ubuntu-bionic-Xavier-4.9.108.patch
 echo -e "\e[32mApplying realsense-metadata patch\e[0m"
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-metadata-ubuntu-bionic-master.patch
+patch -p1 < ${INSTALL_DIR}/patches/realsense-metadata-ubuntu-bionic-Xavier-4.9.108.patch
 echo -e "\e[32mApplying realsense-hid patch\e[0m"
 # This appears to be the closest
-patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-hid-ubuntu-xenial-Ubuntu-hwe-4.8.0-58.63_16.04.1.patch
+patch -p1 < ${INSTALL_DIR}/patches/realsense-hid-ubuntu-bionic-Xavier-4.9.108.patch
 echo -e "\e[32mpowerlinefrequency-control-fix patch\e[0m"
 patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-powerlinefrequency-control-fix.patch
 
-#
-# Driver Location:
-# /lib/modules/4.9.108-tegra/kernel/drivers/media/
 
