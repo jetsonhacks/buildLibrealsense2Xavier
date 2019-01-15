@@ -140,12 +140,12 @@ sudo ./scripts/patchKernel.sh
 echo "${green}Building Kernel and Modules then installing Modules${reset}"
 sudo ./scripts/makeKernel.sh
 
-echo "${green}Please flash the new kernel Image file on to the Jetson${reset}"
+# The user still needs to flash the new kernel ...
+echo "${green}Please flash the new kernel Image file on to the Jetson.${reset}"
+echo "${green}The new kernel Image is in the directory named 'image'.${reset}"
 
-# To Do
-# Leave a message that the new Image is in /usr/src/kernel/kernel-4.9/arch/arm64/boot/Image
-# Maybe copy it somewhere?
-# And must be flashed on to the Jetson
+mkdir -p image
+cp /usr/src/kernel/kernel-4.9/arch/arm64/boot/Image ./image/Image
 
 # Remove buildJetson Kernel scripts
 if [ $CLEANUP == true ]
