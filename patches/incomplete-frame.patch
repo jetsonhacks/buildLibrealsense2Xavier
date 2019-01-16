@@ -1,0 +1,15 @@
+diff --git a/src/linux/backend-v4l2.cpp b/src/linux/backend-v4l2.cpp
+index 3366845e..58b3e449 100644
+--- a/src/linux/backend-v4l2.cpp
++++ b/src/linux/backend-v4l2.cpp
+@@ -959,6 +959,9 @@ namespace librealsense
+                                 if((buf.bytesused < buffer->get_full_length() - MAX_META_DATA_SIZE) &&
+                                         buf.bytesused > 0)
+                                 {
++                                    // On the NVIDIA AGX Xavier, high frame rates can return incomplete frames
++                                   // Just return instead of issuing error
++                                   return ;
+                                     auto percentage = (100 * buf.bytesused) / buffer->get_full_length();
+                                     std::stringstream s;
+                                     s << "Incomplete video frame detected!\nSize " << buf.bytesused
+

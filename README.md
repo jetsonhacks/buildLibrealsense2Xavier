@@ -36,7 +36,21 @@ $ ./installLibrealsense.sh
 
 This will build the librealsense libraries and examples. The examples will be placed in /usr/local/bin.
 
+Application Patching
 
+Currently there are issues with the realsense-viewer application. The first issue is that sometimes when using large frame sizes, incomplete frames are transmitted. The second issue is that one of the processes tends to block. There are two work around patches provided here as work arounds. The patches may be applied with:
+
+$ ./patchApplication.sh
+
+Note that you will need to recompile the library and application for these to take effect.
+
+Release Notes:
+
+January, 2019
+
+* Initial Release
+* JetPack 4.1.1
+* L4T 31.1
 
 
 
