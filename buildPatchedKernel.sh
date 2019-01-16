@@ -3,9 +3,6 @@
 # Copyright (c) 2016-19 Jetsonhacks 
 # MIT License
 
-
-CLEANUP=true
-
 LIBREALSENSE_DIRECTORY=${HOME}/librealsense
 LIBREALSENSE_VERSION=v2.17.1
 
@@ -13,7 +10,6 @@ LIBREALSENSE_VERSION=v2.17.1
 function usage
 {
     echo "usage: ./buildPatchedKernel.sh [[-n nocleanup ] | [-h]]"
-    echo "-n | --nocleanup   Do not remove kernel and module sources after build"
     echo "-h | --help  This message"
 }
 
@@ -147,14 +143,4 @@ echo "${green}The new kernel Image is in the directory named 'image'.${reset}"
 mkdir -p image
 cp /usr/src/kernel/kernel-4.9/arch/arm64/boot/Image ./image/Image
 
-# Remove buildJetson Kernel scripts
-if [ $CLEANUP == true ]
-then
- echo "Removing Kernel build sources"
- ./removeAllKernelSources.sh
- cd ..
- sudo rm -r $KERNEL_BUILD_DIR
-else
- echo "Kernel sources are in /usr/src"
-fi
 
