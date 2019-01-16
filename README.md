@@ -48,8 +48,8 @@ Release Notes:
 
 January, 2019
 
-* Initial Release
-* JetPack 4.1.1
+* Initial Release - v0.8
+* JetPack 4.1.1 (Developers Preview_
 * L4T 31.1
 
 
