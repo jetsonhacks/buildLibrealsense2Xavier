@@ -38,7 +38,7 @@ This will build the librealsense libraries and examples. The examples will be pl
 
 Application Patching
 
-Currently there are issues with the realsense-viewer application. The first issue is that sometimes when using large frame sizes, incomplete frames are transmitted. The second issue is that one of the processes tends to block. There are two work around patches provided here as work arounds. The patches may be applied with:
+Currently there are issues with the realsense-viewer application. The first issue is that sometimes when using large frame sizes, incomplete frames are received. This is a library wide issue, not strictly limited to the realsense-viewer app. The second issue is that one of the processes tends to block in the realsense-viewer app. There are two work around patches provided here. The patches may be applied with:
 
 $ ./patchApplication.sh
 
@@ -49,7 +49,7 @@ Release Notes:
 January, 2019
 
 * Initial Release - v0.8
-* JetPack 4.1.1 (Developers Preview_
+* JetPack 4.1.1 (Developers Preview)
 * L4T 31.1
 
 
