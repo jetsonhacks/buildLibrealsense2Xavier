@@ -49,8 +49,10 @@ Release Notes:
 January, 2019
 
 * Initial Release - v0.8
+* NVIDIA Jetson AGX Xavier
 * JetPack 4.1.1 (Developers Preview)
 * L4T 31.1
+* Tested on D435i and D435 Intel Realsense Cameras
 
 
 
