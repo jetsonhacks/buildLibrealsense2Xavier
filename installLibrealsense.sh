@@ -75,11 +75,11 @@ git checkout $LIBREALSENSE_VERSION
 
 echo "${green}Applying Model-Views Patch${reset}"
 # The render loop of the post processing does not yield; add a sleep
-# patch -p1 -i $INSTALL_DIR/patches/model-views.patch
+patch -p1 -i $INSTALL_DIR/patches/model-views.patch
 
 echo "${green}Applying Incomplete Frames Patch${reset}"
 # The Jetson tends to return incomplete frames at high frame rates; suppress error logging
-# patch -p1 -i $INSTALL_DIR/patches/incomplete-frame.patch
+patch -p1 -i $INSTALL_DIR/patches/incomplete-frame.patch
 
 
 echo "${green}Applying udev rules${reset}"
@@ -94,7 +94,7 @@ cd build
 echo "${green}Configuring Make system${reset}"
 # Use the CMake version that we built, must be > 3.8
 # Build with CUDA (default), the CUDA flag is USE_CUDA, ie -DUSE_CUDA=true
-cmake ../ -DBUILD_EXAMPLES=true -DBUILD_WITH_CUDA=true
+cmake ../ -DBUILD_EXAMPLES=true -DBUILD_WITH_CUDA=true -DFORCE_LIBUVC=true
 # The library will be installed in /usr/local/lib, header files in /usr/local/include
 # The demos, tutorials and tests will located in /usr/local/bin.
 echo "${green}Building librealsense, headers, tools and demos${reset}"
