@@ -94,7 +94,7 @@ cd build
 echo "${green}Configuring Make system${reset}"
 # Use the CMake version that we built, must be > 3.8
 # Build with CUDA (default), the CUDA flag is USE_CUDA, ie -DUSE_CUDA=true
-cmake ../ -DBUILD_EXAMPLES=true -DBUILD_WITH_CUDA=true -DFORCE_LIBUVC=true -DBUILD_PYTHON_BINDINGS=true -DPYTHON_EXECUTABLE=`which python`
+cmake ../ -DBUILD_EXAMPLES=true -DCMAKE_BUILD_TYPE=Release -DBUILD_WITH_CUDA=true -DFORCE_LIBUVC=true -DBUILD_PYTHON_BINDINGS=true -DPYTHON_EXECUTABLE=`which python`
 # The library will be installed in /usr/local/lib, header files in /usr/local/include
 # The demos, tutorials and tests will located in /usr/local/bin.
 echo "${green}Building librealsense, headers, tools and demos${reset}"
@@ -104,20 +104,9 @@ time make -j$(($NUM_CPU - 1))
 if [ $? -eq 0 ] ; then
   echo "librealsense make successful"
 else
-  # Try to make again; Sometimes there are issues with the build
-  # because of lack of resources or concurrency issues
-  echo "librealsense did not build " >&2
-  echo "Retrying ... "
-  # Single thread this time
-  time make 
-  if [ $? -eq 0 ] ; then
-    echo "librealsense make successful"
-  else
-    # Try to make again
-    echo "librealsense did not successfully build" >&2
-    echo "Please fix issues and retry build"
-    exit 1
-  fi
+  echo "librealsense did not successfully build" >&2
+  echo "Please fix issues and retry build"
+  exit 1
 fi
 echo "${green}Installing librealsense, headers, tools and demos${reset}"
 sudo make install
@@ -130,6 +119,4 @@ echo "The demos and tools are located in /usr/local/bin"
 echo " "
 echo " -----------------------------------------"
 echo " "
-
-
 
