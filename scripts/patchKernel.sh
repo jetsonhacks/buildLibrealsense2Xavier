@@ -26,15 +26,15 @@ cd /usr/src/kernel/kernel-4.9
 
 # ubuntu_codename=`. /etc/os-release; echo ${UBUNTU_CODENAME/*, /}`
 # ubuntu_codename is xenial for L4T 28.X (Ubuntu 16.04)
-# ubuntu_codename is bionic for L4T 31.1 (Ubuntu 18.04)
+# ubuntu_codename is bionic for L4T 32.1 (Ubuntu 18.04)
 # Patching kernel for RealSense devices
 echo -e "\e[32mApplying Realsense-camera-formats patch\e[0m"
-patch -p1 < ${INSTALL_DIR}/patches/realsense-camera-formats_ubuntu-bionic-Xavier-4.9.108.patch
+patch -p1 < ${INSTALL_DIR}/patches/realsense-camera-formats_ubuntu-bionic-Xavier-4.9.140.patch
 echo -e "\e[32mApplying realsense-metadata patch\e[0m"
-patch -p1 < ${INSTALL_DIR}/patches/realsense-metadata-ubuntu-bionic-Xavier-4.9.108.patch
+patch -p1 < ${INSTALL_DIR}/patches/realsense-metadata-ubuntu-bionic-Xavier-4.9.140.patch
 echo -e "\e[32mApplying realsense-hid patch\e[0m"
 # This appears to be the closest
-patch -p1 < ${INSTALL_DIR}/patches/realsense-hid-ubuntu-bionic-Xavier-4.9.108.patch
+patch -p1 < ${INSTALL_DIR}/patches/realsense-hid-ubuntu-bionic-Xavier-4.9.140.patch
 echo -e "\e[32mpowerlinefrequency-control-fix patch\e[0m"
 patch -p1 < ${LIBREALSENSE_DIR}/scripts/realsense-powerlinefrequency-control-fix.patch
 

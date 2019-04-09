@@ -1,7 +1,7 @@
 # buildLibrealsense2Xavier
 Build librealsense 2.0 library on the NVIDIA Jetson AGX Xavier Developer Kit. Intel RealSense D400 series cameras.
 
-This is for version L4T 31.1 (JetPack 4.1.1), librealsense v2.17.1.
+This is for version L4T 32.1.0 (JetPack 4.2), librealsense v2.20.0.
 
 January 2019
 
