@@ -3,17 +3,17 @@
 # Copyright (c) 2016-19 Jetsonhacks 
 # MIT License
 
-# For L4T 31.1.0 the kernel is 4.9.109 hence kernel-4.9
+# For L4T 32.1.0 the kernel is 4.9.140 hence kernel-4.9
 echo "Configuring Kernel for librealsense"
 
 cd /usr/src/kernel/kernel-4.9
 echo "Current working directory: "$PWD
 KERNEL_VERSION=$(uname -r)
-# For L4T 31.1.0 the kernel is 4.9.108-tegra ; everything after that is the local version
+# For L4T 32.1.0 the kernel is 4.9.140-tegra ; everything after that is the local version
 # This removes the suffix
-LOCAL_VERSION=${KERNEL_VERSION#$"4.9.108"}
+LOCAL_VERSION=${KERNEL_VERSION#$"4.9.140"}
 
-# On L4T 31.1.0 Kernel 4.9, Industrial I/O support is enabled
+# On L4T 32.1.0 Kernel 4.9, Industrial I/O support is enabled
 # This was not true on earlier versions 
 
 # == Industrial I/O support

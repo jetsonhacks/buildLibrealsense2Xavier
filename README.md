@@ -1,9 +1,9 @@
 # buildLibrealsense2Xavier
 Build librealsense 2.0 library on the NVIDIA Jetson AGX Xavier Developer Kit. Intel RealSense D400 series cameras.
 
-This is for version L4T 31.1 (JetPack 4.1.1), librealsense v2.17.1.
+This is for version L4T 32.1.0 (JetPack 4.2), librealsense v2.20.0.
 
-January 2019
+April 2019
 
 In order for librealsense to work properly, the kernel Image must be rebuilt and patches applied to the UVC module and some other support modules. In addition, for support of the extra features of the D435i camera such as the IMU, extra modules must be built.
 
@@ -45,6 +45,11 @@ $ ./patchApplication.sh
 Note that you will need to recompile the library and application for these to take effect.
 
 Release Notes:
+
+April, 2019
+
+* Updated for JetPack 4.2, L4T 32.1 and librealsense 2.20
+* Tested on D435 Intel Realsense Camera
 
 January, 2019
 

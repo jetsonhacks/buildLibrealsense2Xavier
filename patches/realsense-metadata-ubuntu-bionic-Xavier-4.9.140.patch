@@ -2,7 +2,7 @@ diff --git a/drivers/media/usb/uvc/uvc_driver.c b/drivers/media/usb/uvc/uvc_driv
 index e43730b626bc..b03bb68ff982 100644
 --- a/drivers/media/usb/uvc/uvc_driver.c
 +++ b/drivers/media/usb/uvc/uvc_driver.c
-@@ -2767,6 +2767,186 @@ static struct usb_device_id uvc_ids[] = {
+@@ -2673,6 +2673,186 @@ static struct usb_device_id uvc_ids[] = {
  	  .bInterfaceSubClass	= 1,
  	  .bInterfaceProtocol	= 0,
  	  .driver_info		= UVC_QUIRK_FORCE_Y8 },
@@ -193,7 +193,7 @@ diff --git a/drivers/media/usb/uvc/uvc_video.c b/drivers/media/usb/uvc/uvc_video
 index ae516e4ea0ff..a6970dda8fa4 100644
 --- a/drivers/media/usb/uvc/uvc_video.c
 +++ b/drivers/media/usb/uvc/uvc_video.c
-@@ -1229,8 +1229,13 @@ static void uvc_video_decode_bulk(struct urb *urb, struct uvc_streaming *stream,
+@@ -1241,8 +1241,13 @@ static void uvc_video_decode_bulk(struct urb *urb, struct uvc_streaming *stream,
  		do {
  			ret = uvc_video_decode_start(stream, buf, mem, len);
  			if (ret == -EAGAIN)
@@ -209,7 +209,7 @@ index ae516e4ea0ff..a6970dda8fa4 100644
  		} while (ret == -EAGAIN);
  
  		/* If an error occurred skip the rest of the payload. */
-@@ -1262,9 +1267,13 @@ static void uvc_video_decode_bulk(struct urb *urb, struct uvc_streaming *stream,
+@@ -1274,9 +1274,13 @@ static void uvc_video_decode_bulk(struct urb *urb, struct uvc_streaming *stream,
  		if (!stream->bulk.skip_payload && buf != NULL) {
  			uvc_video_decode_end(stream, buf, stream->bulk.header,
  				stream->bulk.payload_size);
@@ -230,7 +230,7 @@ diff --git a/drivers/media/usb/uvc/uvcvideo.h b/drivers/media/usb/uvc/uvcvideo.h
 index 426fb245125a..e81e9cd53295 100644
 --- a/drivers/media/usb/uvc/uvcvideo.h
 +++ b/drivers/media/usb/uvc/uvcvideo.h
-@@ -201,7 +201,7 @@
+@@ -150,7 +150,7 @@
  /* Maximum number of packets per URB. */
  #define UVC_MAX_PACKETS		32
  /* Maximum status buffer size in bytes of interrupt URB. */
@@ -239,11 +239,12 @@ index 426fb245125a..e81e9cd53295 100644
  
  #define UVC_CTRL_CONTROL_TIMEOUT	500
  #define UVC_CTRL_STREAMING_TIMEOUT	5000
-@@ -222,6 +222,7 @@
+@@ -171,6 +171,7 @@
  #define UVC_QUIRK_RESTRICT_FRAME_RATE	0x00000200
  #define UVC_QUIRK_RESTORE_CTRLS_ON_INIT	0x00000400
  #define UVC_QUIRK_FORCE_Y8		0x00000800
-+#define UVC_QUIRK_APPEND_UVC_HEADER	0x00001000
+ #define UVC_QUIRK_DISABLE_AUTOSUSPEND	0x00001000
++#define UVC_QUIRK_APPEND_UVC_HEADER	0x00002000
  
  /* Format flags */
  #define UVC_FMT_FLAG_COMPRESSED		0x00000001
