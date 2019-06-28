@@ -4,7 +4,7 @@
 # MIT License
 
 LIBREALSENSE_DIRECTORY=${HOME}/librealsense
-LIBREALSENSE_VERSION=v2.17.1
+LIBREALSENSE_VERSION=v2.20.0
 
 
 function usage
@@ -51,10 +51,10 @@ set -e
 KERNEL_BUILD_VERSION=master
 # Quotes around Jetson Board because the name may have a space, ie "AGX Xavier"
 if [ "$JETSON_BOARD" == "AGX Xavier" ] ; then 
-  L4TTarget="31.1.0"
-  # Test for 31.1.0 first
-  if [ $JETSON_L4T = "31.1.0" ] ; then
-     KERNEL_BUILD_VERSION=vL4T31.1.0
+  L4TTarget="32.1.0"
+  # Test for 32.1.0 first
+  if [ $JETSON_L4T = "32.1.0" ] ; then
+     KERNEL_BUILD_VERSION=vL4T32.1.0
   else
    echo ""
    tput setaf 1

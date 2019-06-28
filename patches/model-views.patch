@@ -2,7 +2,7 @@ diff --git a/common/model-views.cpp b/common/model-views.cpp
 index eaeac779..ad246523 100644
 --- a/common/model-views.cpp
 +++ b/common/model-views.cpp
-@@ -3413,6 +3413,7 @@ namespace rs2
+@@ -3971,6 +3971,7 @@ namespace rs2
                  }
              }
              catch (...) {}
