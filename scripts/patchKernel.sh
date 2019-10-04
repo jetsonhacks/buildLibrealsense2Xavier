@@ -16,10 +16,10 @@ echo "kernel branch" $kernel_branch
 kernel_name="kernel-4.9"
 
 
-# For L4T 31.1.0 the kernel is 4.9.108 hence kernel-4.9
+# For L4T 32.1.0 the kernel is 4.9.140 hence kernel-4.9
 
 # Patches are available for kernel 4.4, 4.10 and 4.16
-# For L4T 31.1.0, the kernel is 4.9
+# For L4T 32.1.0, the kernel is 4.9
 # Therefore we have to do a little dance; patches are modified versions of xenial 4.4 and 4.8 kernel patches
 
 cd /usr/src/kernel/kernel-4.9
