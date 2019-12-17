@@ -3,6 +3,14 @@ Build librealsense 2.0 library on the NVIDIA Jetson AGX Xavier Developer Kit. In
 
 This is for version L4T 32.1.0 (JetPack 4.2), librealsense v2.20.0.
 
+**NOTE**
+
+December 2019
+
+> Starting with L4T 32.2.1 (JetPack 4.2.2) on the NVIDIA Jetsons and the Intel RealSense SDK version v2.23.0, it is now possible to do a simple install from a RealSense debian repository (i.e. apt-get install).
+
+Please see https://github.com/jetsonhacks/installRealSenseSDK for more detail.
+
 April 2019
 
 In order for librealsense to work properly, the kernel Image must be rebuilt and patches applied to the UVC module and some other support modules. In addition, for support of the extra features of the D435i camera such as the IMU, extra modules must be built.
