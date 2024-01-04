@@ -230,15 +230,6 @@ diff --git a/drivers/media/usb/uvc/uvcvideo.h b/drivers/media/usb/uvc/uvcvideo.h
 index 426fb245125a..e81e9cd53295 100644
 --- a/drivers/media/usb/uvc/uvcvideo.h
 +++ b/drivers/media/usb/uvc/uvcvideo.h
-@@ -150,7 +150,7 @@
- /* Maximum number of packets per URB. */
- #define UVC_MAX_PACKETS		32
- /* Maximum status buffer size in bytes of interrupt URB. */
--#define UVC_MAX_STATUS_SIZE	16
-+#define UVC_MAX_STATUS_SIZE	32
- 
- #define UVC_CTRL_CONTROL_TIMEOUT	500
- #define UVC_CTRL_STREAMING_TIMEOUT	5000
 @@ -171,6 +171,7 @@
  #define UVC_QUIRK_RESTRICT_FRAME_RATE	0x00000200
  #define UVC_QUIRK_RESTORE_CTRLS_ON_INIT	0x00000400
